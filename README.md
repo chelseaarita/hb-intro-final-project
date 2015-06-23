@@ -1,3 +1,5 @@
+Hangman
+
 1. There can be one player or a group. 
 2. Have the player select a letter of the alphabet.
 3. If the letter is contained in the word/phrase, the player takes another turn guessing a letter. 
