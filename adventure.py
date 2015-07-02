@@ -28,24 +28,24 @@ print "Hello, %s. Welcome to my final project." % name
 print "                                                         "
 print "                                                         "
 print "                                                         "
-mylist = [("You and your friends are walking through the Presido during dusk.", 0), 
- ("The atmosphere is quiet as you hear the ocean waves break onto shore.", 0),
- ("As you walk more into the Presido, you all come across an abandoned building.", 0),
- ("Do you walk closer to the building as nightfall is coming or keep walking? ",1)]
+# mylist = [("You and your friends are walking through the Presido during dusk.", 0), 
+#  ("The atmosphere is quiet as you hear the ocean waves break onto shore.", 0),
+#  ("As you walk more into the Presido, you all come across an abandoned building.", 0),
+#  ("Do you walk closer to the building as nightfall is coming or keep walking? ",1)]
 
-current = 0
-while current<len(mylist):
-	if mylist[current][1] == 0:
-		myinput = raw_input(mylist[current][0])
-		print myinput
-		current += 1
-	else:
-		myinput = raw_input(mylist[current][0])
-		if myinput == 'keep walking':
-			print "You keep walking."
-		elif myinput == 'walk closer':
-			print "You and your friends walk closer to the building as leaves and sticks crunch beneath your shoes."
-		current += 1
+# current = 0
+# while current<len(mylist):
+# 	if mylist[current][1] == 0:
+# 		myinput = raw_input(mylist[current][0])
+# 		print myinput
+# 		current += 1
+# 	else:
+# 		myinput = raw_input(mylist[current][0])
+# 		if myinput == 'keep walking':
+# 			print "You keep walking."
+# 		elif myinput == 'walk closer':
+# 			print "You and your friends walk closer to the building as leaves and sticks crunch beneath your shoes."
+# 		current += 1
 	
 
 
@@ -54,32 +54,53 @@ while current<len(mylist):
 #	print myinput
 
 
-def choosePath(numberOfPaths):
-    choice = 0
-    while choice < 1 or choice > numberOfPaths:
-        # print('1 to ' + str(numberOfPaths) + '> ', end='')
-        choice = input()
-        if choice != '1' and choice != '2' and choice != '3' and choice != '4' and choice != '5':
-            choice = 0
-        if choice == '1' or choice == '2' or choice == '3' or choice == '4' or choice == '5':
-            choice = int(choice)
-    print()
-    return choice
+# def choosePath(numberOfPaths):
+#     choice = 0
+#     while choice < 1 or choice > numberOfPaths:
+#         print('1 to ' + str(numberOfPaths) + '> ', end='')
+#         choice = input()
+#         if choice != '1' and choice != '2' and choice != '3' and choice != '4' and choice != '5':
+#             choice = 0
+#         if choice == '1' or choice == '2' or choice == '3' or choice == '4' or choice == '5':
+#             choice = int(choice)
+#     print()
+#     return choice
 
-def choosePath():
+def choosePath(numberOfPaths):
+	# path = raw_input("1 to "+str(numberOfPaths)+">")
+	# check whether the path is an integer between 1 and including the numberOfPaths
+	while True: 
+		path = raw_input("1 to "+str(numberOfPaths)+"> ")
+		if path.isdigit() and int(path)>=1 and int(path)<=numberOfPaths: #when it's a raw input, it's always a string.
+			break
+	# print("Type Exit to exit")
+		# item = raw_input("Add an item: ")
+		# if(item == "exit"):
+
+	return int(path)
 
 
 def intro():
+	print("                                                                 ")
 	print("You and your friends are walking through the Presido during dusk.")
 	print("The atmosphere is quiet as you hear the ocean waves break onto shore.")
 	print("You all come across an abandoned hospital.")
 	print("")
 	print("What will you do?")
-	print(" 1 Go inside of the abandoned hopsital.")
+	print(" 1 Walk inside the abandoned hopsital.")
 	print(" 2 Keep walking on the path.")
+
+	walk = choosePath(2)
+
+	if walk == 1:
+		front()
+	else:
+		path()
+
 
 
 def front():
+	print("                                                                    ")
 	print("You are standing in front of the hospital. It's dark and uninviting.")
 	print("There is a repulsive stench of mildew, mold, and sulpher.")
 	print("There is also movement and errie cries coming from unrecgonizable animals.")
@@ -88,10 +109,61 @@ def front():
 	print(" 1 Walk through the hallways.")
 	print(" 2 Not going to take any chances and leave.")
 
+	walk = choosePath(2)
+
+	if walk == 1:
+		hallways()
+	else:
+		gohome()
+
+def hallways():
+	print("                                                                                  ")
+	print("You're standing in long endless hallway and there are a dozen closed doors that see. What door do you go into?")
+
+	walk = choosePath(12)
+
+	if walk == 7:
+		zombie()
+	else:
+		stuck_door()
+
+def zombie():
+	print("                 ")
+	print("Aaah its a zombie")
+
+def stuck_door():
+	print("                         ")
+	print("bummer the door is stuck")
+	hallways()
+
+def gohome():
+	print("             ")
+	print("you went home")
+
 def path():
+	print("                                                               ")
 	print("You and your friends continue walking the path in the Presidio.")
 	print("You enjoy their random stories and company and would have not thought twice about walking into an abandoned building.")
 	print("	")
+	print("What will you do?")
+	print(" 1 Walk inside the abandoned hopsital.")
+	print(" 2 Keep walking on the path.")
+	print(" 3 just go home")
+
+	walk = choosePath(3)
+
+	if walk == 1:
+		front()
+	elif walk == 2:
+		path()
+	else:
+		go_home()
+
+def go_home():
+	print("                 ")
+	print("I just went home")
+
+
 
 #start the game
 intro()
