@@ -140,7 +140,7 @@ def front():
 
 def hallways():
 	print(" ")
-	print("You're standing in a long endless hallway and there are a dozen closed doors that see. What door do you go into?")
+	print("You're standing in a long endless hallway and there are a dozen closed doors that you see. What door do you go into?")
 	print(" ")
 
 	walk = choosePath(12)
@@ -207,9 +207,11 @@ def zombie():
 def defend():
 	print(" ")
 	print("You don't have any weapons with you, so you take a swing at their chest, the zombie steps back and you miss.")
+	print(" ")
 	raw_input('Press enter to continue ')
 	print(" ")
 	print("The zombie lunges at you and tries to bite you but it misses you by a mere half inch.")
+	print(" ")
 	raw_input('Press enter to continue ')
 	print(" ")
 	print("You try to jump on the zombie but you missed and fall to the ground.")
@@ -263,9 +265,11 @@ def gohome():
 def path():
 	print(" ")
 	print("You and your friends continue walking the path in the Presidio.")
+	print(" ")
 	raw_input('Press enter to continue ')
 	print(" ")
 	print("Walking through the park and hearing the waves crash onto shore is peaceful and comforting.")
+	print(" ")
 	raw_input('Press enter to continue ')
 	print(" ")
 	print("You enjoy their random stories and company and would have not thought twice about walking into an abandoned building.")
@@ -274,6 +278,7 @@ def path():
 def scared():
 	print(" ")
 	print("You're so scared. You run so fast, you end up tripping on debris, and falling. You quickly get up and bump your head. You were never very graceful when you were scared.")
+	print(" ")
 	raw_input('Press enter to continue ')
 	print(" ")
 	print("You manage to limp away while holding your head, and you see the opening of the hopstial doors. You're so relieved.")
